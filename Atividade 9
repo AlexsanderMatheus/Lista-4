@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    char caracter;
+
+    // Lê o número de linhas
+    printf("Digite o número de linhas: ");
+    scanf("%d", &n);
+
+    // Lê o caractere a ser usado
+    printf("Digite um caractere: ");
+    scanf(" %c", &caracter); // O espaço antes de %c ignora o newline
+
+    // Produz a saída em formato de triângulo
+    for (int i = 1; i <= n; i++) {
+        // Imprime espaços em branco para alinhar o triângulo
+        for (int j = 1; j <= n - i; j++) {
+            printf(" ");
+        }
+        // Imprime os caracteres
+        for (int k = 1; k <= i; k++) {
+            printf("%c ", caracter);
+        }
+        // Move para a próxima linha
+        printf("\n");
+    }
+
+    return 0;
+}
