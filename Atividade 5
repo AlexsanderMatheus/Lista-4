@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+int main() {
+    int x; // Número de alunos
+    printf("Digite o número de alunos: ");
+    scanf("%d", &x);
+
+    float media, mediaGeral = 0.0;
+    char grauSubstituido;
+    float notaA, notaB, notaC;
+    int aprovados = 0;
+
+    for (int i = 0; i < x; i++) {
+        printf("\nAluno %d:\n", i + 1);
+        
+        // Ler as notas do grau A e grau B
+        printf("Digite a nota do grau A: ");
+        scanf("%f", &notaA);
+        printf("Digite a nota do grau B: ");
+        scanf("%f", &notaB);
+
+        // Calcular a média
+        media = (notaA + notaB) / 2;
+
+        // Verificar se o aluno está aprovado
+        if (media >= 7.0) {
+            printf("APROVADO\n");
+            mediaGeral += media;
+            aprovados++;
+        } else {
+            // Se reprovado, ler nota C e grau a ser substituído
+            printf("REPROVADO. Digite a nota do grau C: ");
+            scanf("%f", &notaC);
+            printf("Qual grau substituir (A ou B)? ");
+            scanf(" %c", &grauSubstituido); // O espaço antes de %c é para capturar o newline
+
+            // Recalcular a média com a substituição
+            if (grauSubstituido == 'A' || grauSubstituido == 'a') {
+                media = (notaC + notaB) / 2;
+            } else if (grauSubstituido == 'B' || grauSubstituido == 'b') {
+                media = (notaA + notaC) / 2;
+            } else {
+                printf("Grau inválido, mantendo a média anterior.\n");
+            }
+
+            // Verificar se o aluno está aprovado após a substituição
+            if (media >= 7.0) {
+                printf("APROVADO\n");
+                mediaGeral += media;
+                aprovados++;
+            } else {
+                printf("REPROVADO\n");
+            }
+        }
+    }
+
+    // Calcular e exibir a média geral
+    if (x > 0) {
+        float mediaGeralFinal = mediaGeral / x;
+        printf("\nMédia geral dos alunos: %.2f\n", mediaGeralFinal);
+    } else {
+        printf("Nenhum aluno foi registrado.\n");
+    }
+
+    return 0;
+}
