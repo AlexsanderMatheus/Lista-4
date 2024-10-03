@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+unsigned long long fatorial(int n) {
+    unsigned long long resultado = 1;
+    for (int i = 1; i <= n; i++) {
+        resultado *= i; // Multiplica os números de 1 até n
+    }
+    return resultado;
+}
+
+int main() {
+    int numero;
+    char continuar;
+
+    do {
+        // Lê um número do usuário
+        printf("Digite um número inteiro positivo para calcular o fatorial: ");
+        scanf("%d", &numero);
+
+        // Verifica se o número é negativo
+        if (numero < 0) {
+            printf("Por favor, digite um número inteiro positivo.\n");
+        } else {
+            // Calcula e imprime o fatorial
+            unsigned long long resultado = fatorial(numero);
+            printf("O fatorial de %d é: %llu\n", numero, resultado);
+        }
+
+        // Pergunta se o usuário deseja continuar
+        printf("Deseja calcular outro fatorial? (s/n): ");
+        scanf(" %c", &continuar); // O espaço antes de %c ignora o newline
+
+    } while (continuar == 's' || continuar == 'S'); // Continua enquanto o usuário responder 's' ou 'S'
+
+    printf("Programa encerrado.\n");
+    return 0;
+}
