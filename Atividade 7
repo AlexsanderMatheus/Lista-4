@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_NOMES 5
+#define MAX_LENGTH 100
+
+int main() {
+    char nomes[MAX_NOMES][MAX_LENGTH];
+    char primeiro[MAX_LENGTH];
+
+    // Lê os cinco nomes do usuário
+    printf("Digite 5 nomes:\n");
+    for (int i = 0; i < MAX_NOMES; i++) {
+        printf("Nome %d: ", i + 1);
+        scanf(" %[^\n]", nomes[i]); // Lê uma linha i
