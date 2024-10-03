@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numeroSorteado, palpite, tentativas = 3;
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+    numeroSorteado = rand() % 10 + 1; // Gera um número de 1 a 10
+
+    printf("Bem-vindo ao jogo de adivinhação!\n");
+    printf("Tente adivinhar o número que eu sorteei entre 1 e 10.\n");
+
+    // Loop de tentativas
+    for (int i = 0; i < tentativas; i++) {
+        printf("Tentativa %d: ", i + 1);
+        scanf("%d", &palpite);
+
+        if (palpite == numeroSorteado) {
+            printf("Parabéns! Você acertou o número %d!\n", numeroSorteado);
+            return 0; // Encerra o programa se o usuário acertar
+        } else if (palpite < numeroSorteado) {
+            printf("O número está acima do seu palpite.\n");
+        } else {
+            printf("O número está abaixo do seu palpite.\n");
+        }
+    }
+
+    // Se o usuário não acertou nas 3 tentativas
+    printf("Você não acertou. O número era %d.\n", numeroSorteado);
+    return 0;
+}
