@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int divisor, inicio, fim;
+
+    // Solicita ao usuário que insira o divisor
+    printf("Digite o valor do divisor: ");
+    scanf("%d", &divisor);
+
+    // Solicita ao usuário que insira o intervalo
+    printf("Digite o valor inicial do intervalo: ");
+    scanf("%d", &inicio);
+    printf("Digite o valor final do intervalo: ");
+    scanf("%d", &fim);
+
+    // Verifica se o divisor é zero
+    if (divisor == 0) {
+        printf("Divisor não pode ser zero.\n");
+        return 1; // Encerra o programa em caso de divisor inválido
+    }
+
+    // Exibe os números divisíveis pelo divisor no intervalo especificado
+    printf("Números divisíveis por %d no intervalo de %d a %d:\n", divisor, inicio, fim);
+    for (int i = inicio; i <= fim; i++) {
+        if (i % divisor == 0) {
+            printf("%d\n", i);
+        }
+    }
+
+    return 0;
+}
