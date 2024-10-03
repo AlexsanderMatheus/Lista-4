@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numeros[5];
+    int i;
+    int menor, maior;
+    float media = 0.0;
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+
+    // Sorteia 5 valores entre 0 e 100
+    printf("Valores sorteados:\n");
+    for (i = 0; i < 5; i++) {
+        numeros[i] = rand() % 101; // Gera número entre 0 e 100
+        printf("%d ", numeros[i]);
+        media += numeros[i]; // Soma para calcular a média
+    }
+
+    // Calcula a média
+    
